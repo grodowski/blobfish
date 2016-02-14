@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,12 +642,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="BlobfishCollectionView" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
@@ -667,15 +668,93 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="BlobfishCollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbT-VF-Tfh">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <clipView key="contentView" id="rtX-qR-AJZ">
+                                    <rect key="frame" x="1" y="1" width="478" height="268"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="jsa-Rv-lti">
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="268"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <binding destination="nmy-bf-8oH" name="content" keyPath="arrangedObjects" id="pTW-3N-osx"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="rEe-Vv-7oc">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="mMA-uL-bNT">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hbT-VF-Tfh" secondAttribute="bottom" id="Cff-Un-UQE"/>
+                            <constraint firstItem="hbT-VF-Tfh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="QPk-De-cGx"/>
+                            <constraint firstItem="hbT-VF-Tfh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Tac-58-fEo"/>
+                            <constraint firstAttribute="trailing" secondItem="hbT-VF-Tfh" secondAttribute="trailing" id="auQ-2G-zX8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="jsa-Rv-lti" id="ZYA-W2-vs2"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="LFd-4g-4Fy" customClass="Controller" customModule="BlobfishCollectionView" customModuleProvider="target">
+                    <connections>
+                        <outlet property="arrayController" destination="nmy-bf-8oH" id="mY2-Yy-0LC"/>
+                    </connections>
+                </customObject>
+                <arrayController objectClassName="ImageObject" id="nmy-bf-8oH">
+                    <declaredKeys>
+                        <string>image</string>
+                    </declaredKeys>
+                    <connections>
+                        <binding destination="LFd-4g-4Fy" name="contentArray" keyPath="images" id="WhC-6g-jDW"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Collection View Item-->
+        <scene sceneID="5Xq-6M-KmV">
+            <objects>
+                <collectionViewItem storyboardIdentifier="collectionViewItem" id="KAE-hm-vH0" sceneMemberID="viewController">
+                    <view key="view" id="MLl-qV-ZuG">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rW2-7P-4FQ">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="scA-4a-2FX"/>
+                                <connections>
+                                    <binding destination="KAE-hm-vH0" name="value" keyPath="representedObject.image" id="6Xh-0g-Urd"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rW2-7P-4FQ" firstAttribute="top" secondItem="MLl-qV-ZuG" secondAttribute="top" id="4Sv-69-mDq"/>
+                            <constraint firstAttribute="bottom" secondItem="rW2-7P-4FQ" secondAttribute="bottom" id="9T8-un-9B8"/>
+                            <constraint firstAttribute="trailing" secondItem="rW2-7P-4FQ" secondAttribute="trailing" id="n8e-Hr-UtK"/>
+                            <constraint firstItem="rW2-7P-4FQ" firstAttribute="leading" secondItem="MLl-qV-ZuG" secondAttribute="leading" id="sO1-ec-ijk"/>
+                        </constraints>
+                    </view>
+                </collectionViewItem>
+                <customObject id="rFm-hk-mKg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="aUJ-l0-XaU"/>
+            </objects>
+            <point key="canvasLocation" x="513" y="648"/>
         </scene>
     </scenes>
 </document>
