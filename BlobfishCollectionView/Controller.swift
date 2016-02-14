@@ -16,7 +16,11 @@ class Controller: NSObject {
     
     override func awakeFromNib() {
         for _ in 1...50 {
-            let newImage = ImageObject()
+            let newImage = ImageObject(imageKey: "iwin")
+            self.arrayController.addObject(newImage)
+        }
+        for _ in 1...50 {
+            let newImage = ImageObject(imageKey: "omgsocool")
             self.arrayController.addObject(newImage)
         }
     }

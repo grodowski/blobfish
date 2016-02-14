@@ -10,6 +10,10 @@ import Cocoa
 
 class ImageObject: NSObject {
     
-    var image: NSImage = NSImage(named: "iwin")!
+    var image: NSImage
+    
+    init(imageKey: String) {
+        self.image = NSImage(named: imageKey)!
+    }
 
 }
