@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 class Controller: NSObject {
     
@@ -15,6 +16,8 @@ class Controller: NSObject {
     var images: NSMutableArray = NSMutableArray()
     
     override func awakeFromNib() {
+        // TODO: play with Alamofire
+        print(Alamofire.request(.GET, "https://httpbin.org/get"))
         for _ in 1...50 {
             let newImage = ImageObject(imageKey: "iwin")
             self.arrayController.addObject(newImage)
