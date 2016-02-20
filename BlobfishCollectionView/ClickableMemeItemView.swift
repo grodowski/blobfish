@@ -15,7 +15,15 @@ class ClickableMemeItemView: NSCollectionViewItem {
     
     @IBAction func action(sender: AnyObject) {
         let myImageObject = representedObject as! ImageObject
-        print(myImageObject.url) // TODO: needs moar work
+        let res = sendUrlToPasteBoard((myImageObject.url))
+        print(myImageObject.url) // TODO: needs moar work, delegate this somewhere else!
+        print(res)
+    }
+    
+    func sendUrlToPasteBoard(url: String) -> Bool {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        pasteboard.declareTypes([NSPasteboardTypeString], owner: nil)
+        return pasteboard.setString("![blobfish_meme](\(url))", forType: NSPasteboardTypeString)
     }
     
 }
