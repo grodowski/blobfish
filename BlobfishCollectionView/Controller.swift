@@ -8,6 +8,7 @@
 
 import Cocoa
 import Alamofire
+import SwiftyJSON
 
 class Controller: NSObject {
     
@@ -16,15 +17,16 @@ class Controller: NSObject {
     var images: NSMutableArray = NSMutableArray()
     
     override func awakeFromNib() {
-        // TODO: play with Alamofire
-        print(Alamofire.request(.GET, "https://httpbin.org/get"))
-        for _ in 1...50 {
-            let newImage = ImageObject(imageKey: "iwin")
-            self.arrayController.addObject(newImage)
-        }
-        for _ in 1...50 {
-            let newImage = ImageObject(imageKey: "omgsocool")
-            self.arrayController.addObject(newImage)
+        Alamofire.request(.GET, "http://localhost:8000/memes").responseJSON { response in
+            guard response.result.isSuccess else {
+                print("request failed")
+                return
+            }
+            let json = JSON(data: response.data!)
+            for (_, image):(String, JSON) in json {
+                let newImage = ImageObject(url: image["url"].string!)
+                self.arrayController.addObject(newImage)
+            }
         }
     }
 }

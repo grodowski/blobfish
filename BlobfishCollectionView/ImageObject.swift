@@ -15,5 +15,8 @@ class ImageObject: NSObject {
     init(imageKey: String) {
         self.image = NSImage(named: imageKey)!
     }
-
+    
+    init(url: String) {
+        self.image = NSImage(byReferencingURL: NSURL.init(string: url)!)
+    }
 }
