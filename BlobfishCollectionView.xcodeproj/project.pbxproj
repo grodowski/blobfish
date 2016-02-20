@@ -13,7 +13,8 @@
 		3D4EE1411C70EEF60025C3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4EE1401C70EEF60025C3F8 /* Assets.xcassets */; };
 		3D4EE1441C70EEF60025C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4EE1421C70EEF60025C3F8 /* Main.storyboard */; };
 		3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */; };
-		3D4EE14E1C70F13F0025C3F8 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE14D1C70F13F0025C3F8 /* Controller.swift */; };
+		3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */; };
+		3DFE33881C78F73E00252035 /* ClickableMemeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */; };
 		77659F62FA39F98FD5BC2974 /* Pods_BlobfishCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EF3EA0BA0274D24220B99F /* Pods_BlobfishCollectionView.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,8 @@
 		3D4EE1431C70EEF60025C3F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D4EE1451C70EEF60025C3F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
-		3D4EE14D1C70F13F0025C3F8 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickableMemeItemView.swift; sourceTree = "<group>"; };
+		3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClickableMemeItemView.xib; sourceTree = "<group>"; };
 		8C115C8FCE58ED181D3A146B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A8CB3ABAC26D6229B7FFE938 /* Pods-BlobfishCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlobfishCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlobfishCollectionView/Pods-BlobfishCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 		B6F0D5B274A676544B2E832F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,9 +72,10 @@
 				3D4EE13C1C70EEF60025C3F8 /* AppDelegate.swift */,
 				3D4EE13E1C70EEF60025C3F8 /* ViewController.swift */,
 				3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */,
-				3D4EE14D1C70F13F0025C3F8 /* Controller.swift */,
 				3D4EE1401C70EEF60025C3F8 /* Assets.xcassets */,
 				3D4EE1421C70EEF60025C3F8 /* Main.storyboard */,
+				3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */,
+				3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */,
 				3D4EE1451C70EEF60025C3F8 /* Info.plist */,
 			);
 			path = BlobfishCollectionView;
@@ -160,6 +163,7 @@
 			files = (
 				3D4EE1411C70EEF60025C3F8 /* Assets.xcassets in Resources */,
 				3D4EE1441C70EEF60025C3F8 /* Main.storyboard in Resources */,
+				3DFE33881C78F73E00252035 /* ClickableMemeItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +223,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */,
+				3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */,
 				3D4EE13F1C70EEF60025C3F8 /* ViewController.swift in Sources */,
 				3D4EE13D1C70EEF60025C3F8 /* AppDelegate.swift in Sources */,
-				3D4EE14E1C70F13F0025C3F8 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

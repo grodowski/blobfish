@@ -11,12 +11,10 @@ import Cocoa
 class ImageObject: NSObject {
     
     var image: NSImage
-    
-    init(imageKey: String) {
-        self.image = NSImage(named: imageKey)!
-    }
+    var url: String
     
     init(url: String) {
+        self.url = url
         self.image = NSImage(byReferencingURL: NSURL.init(string: url)!)
     }
 }
