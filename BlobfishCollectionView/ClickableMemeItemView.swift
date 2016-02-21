@@ -9,6 +9,9 @@
 import Cocoa
 
 class ClickableMemeItemView: NSCollectionViewItem {
+
+    @IBOutlet weak var label: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,6 +19,11 @@ class ClickableMemeItemView: NSCollectionViewItem {
     @IBAction func action(sender: AnyObject) {
         let myImageObject = representedObject as! ImageObject
         let res = sendUrlToPasteBoard((myImageObject.url))
+        
+        label.hidden = false
+        delay(0.7) {
+            self.label.hidden = true
+        }
         print(myImageObject.url) // TODO: needs moar work, delegate this somewhere else!
         print(res)
     }
@@ -25,5 +33,4 @@ class ClickableMemeItemView: NSCollectionViewItem {
         pasteboard.declareTypes([NSPasteboardTypeString], owner: nil)
         return pasteboard.setString("![blobfish_meme](\(url))", forType: NSPasteboardTypeString)
     }
-    
 }

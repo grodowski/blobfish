@@ -14,13 +14,18 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
 
     @IBOutlet weak var collectionView: NSCollectionView!
     
+    #if DEBUG
+    let mothershipUrl: String = "http://localhost:8000/memes"
+    #else
+    let mothershipUrl: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io/memes"
+    #endif
     var images: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes(["public.data"])
         collectionView.wantsLayer = true
-        Alamofire.request(.GET, "http://localhost:8000/memes").responseJSON { response in
+        Alamofire.request(.GET, mothershipUrl).responseJSON { response in
             guard response.result.isSuccess else {
                 let alert = NSAlert.init()
                 alert.messageText = "Mothership Failure"

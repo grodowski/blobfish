@@ -5,7 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ClickableMemeItemView" customModule="BlobfishCollectionView" customModuleProvider="target"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="ClickableMemeItemView" customModule="BlobfishCollectionView" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="pIB-hD-fTX" id="2Vf-ON-CIf"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
@@ -14,7 +18,7 @@
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGl-P7-8g1">
                     <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="A69F4999-2B69-4CAA-8106-8D029288C853" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="C2T-zm-beD">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="43A12CFB-8025-49E4-8346-940BC8B6413F" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="C2T-zm-beD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -23,17 +27,26 @@
                         <binding destination="gyU-Tz-Zhd" name="image" keyPath="representedObject.image" id="Oza-k9-d3h"/>
                     </connections>
                 </button>
+                <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="pIB-hD-fTX">
+                    <rect key="frame" x="65" y="82" width="95" height="61"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Markdown copied to pasteboard" id="cIA-Ya-gEK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <point key="canvasLocation" x="314.5" y="392.5"/>
         </customView>
         <viewController id="gyU-Tz-Zhd" customClass="ClickableMemeItemView" customModule="BlobfishCollectionView" customModuleProvider="target">
             <connections>
+                <outlet property="label" destination="pIB-hD-fTX" id="P04-Uh-yVx"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="D18-eU-oel"/>
             </connections>
         </viewController>
     </objects>
     <resources>
-        <image name="A69F4999-2B69-4CAA-8106-8D029288C853" width="1" height="1">
+        <image name="43A12CFB-8025-49E4-8346-940BC8B6413F" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

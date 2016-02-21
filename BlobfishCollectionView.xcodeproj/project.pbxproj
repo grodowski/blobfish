@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		176F26946F36CC35DBDCE4F7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3622994887717E86981BA9FC /* Pods.framework */; };
 		3D4EE13D1C70EEF60025C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE13C1C70EEF60025C3F8 /* AppDelegate.swift */; };
 		3D4EE13F1C70EEF60025C3F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE13E1C70EEF60025C3F8 /* ViewController.swift */; };
 		3D4EE1411C70EEF60025C3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4EE1401C70EEF60025C3F8 /* Assets.xcassets */; };
 		3D4EE1441C70EEF60025C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4EE1421C70EEF60025C3F8 /* Main.storyboard */; };
 		3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */; };
+		3DEA96B11C7A4F3900A2FAC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */; };
 		3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */; };
 		3DFE33881C78F73E00252035 /* ClickableMemeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */; };
 		77659F62FA39F98FD5BC2974 /* Pods_BlobfishCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EF3EA0BA0274D24220B99F /* Pods_BlobfishCollectionView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3622994887717E86981BA9FC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4EE1391C70EEF60025C3F8 /* BlobfishCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlobfishCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4EE13C1C70EEF60025C3F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D4EE13E1C70EEF60025C3F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,12 +26,11 @@
 		3D4EE1431C70EEF60025C3F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D4EE1451C70EEF60025C3F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
+		3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickableMemeItemView.swift; sourceTree = "<group>"; };
 		3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClickableMemeItemView.xib; sourceTree = "<group>"; };
 		4ED9D78F3EFEF799EFC48635 /* Pods-BlobfishCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlobfishCollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlobfishCollectionView/Pods-BlobfishCollectionView.release.xcconfig"; sourceTree = "<group>"; };
-		8C115C8FCE58ED181D3A146B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A8CB3ABAC26D6229B7FFE938 /* Pods-BlobfishCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlobfishCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlobfishCollectionView/Pods-BlobfishCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
-		B6F0D5B274A676544B2E832F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8EF3EA0BA0274D24220B99F /* Pods_BlobfishCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlobfishCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				176F26946F36CC35DBDCE4F7 /* Pods.framework in Frameworks */,
 				77659F62FA39F98FD5BC2974 /* Pods_BlobfishCollectionView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +75,7 @@
 				3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */,
 				3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */,
 				3D4EE1451C70EEF60025C3F8 /* Info.plist */,
+				3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */,
 			);
 			path = BlobfishCollectionView;
 			sourceTree = "<group>";
@@ -85,7 +83,6 @@
 		5A9822D495CD65911A928E4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3622994887717E86981BA9FC /* Pods.framework */,
 				E8EF3EA0BA0274D24220B99F /* Pods_BlobfishCollectionView.framework */,
 			);
 			name = Frameworks;
@@ -94,8 +91,6 @@
 		78AE94DAADE13E1B3A52A6C4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B6F0D5B274A676544B2E832F /* Pods.debug.xcconfig */,
-				8C115C8FCE58ED181D3A146B /* Pods.release.xcconfig */,
 				A8CB3ABAC26D6229B7FFE938 /* Pods-BlobfishCollectionView.debug.xcconfig */,
 				4ED9D78F3EFEF799EFC48635 /* Pods-BlobfishCollectionView.release.xcconfig */,
 			);
@@ -227,6 +222,7 @@
 				3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */,
 				3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */,
 				3D4EE13F1C70EEF60025C3F8 /* ViewController.swift in Sources */,
+				3DEA96B11C7A4F3900A2FAC4 /* Utilities.swift in Sources */,
 				3D4EE13D1C70EEF60025C3F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				CustomAppBundleId = "com.blobfishinc.${PRODUCT_NAME:rfc1034identifier}.${CONFIGURATION}";
 				INFOPLIST_FILE = BlobfishCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blobfishinc.BlobfishCollectionView;
@@ -344,6 +341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				CustomAppBundleId = "com.blobfishinc.${PRODUCT_NAME:rfc1034identifier}";
 				INFOPLIST_FILE = BlobfishCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blobfishinc.BlobfishCollectionView;
