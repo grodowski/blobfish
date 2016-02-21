@@ -19,6 +19,7 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes(["public.data"])
+        collectionView.wantsLayer = true
         Alamofire.request(.GET, "http://localhost:8000/memes").responseJSON { response in
             guard response.result.isSuccess else {
                 let alert = NSAlert.init()
@@ -55,6 +56,7 @@ extension ViewController: NSCollectionViewDelegate {
     func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath?>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation {
         return NSDragOperation.Copy
     }
+    
     func collectionView(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation) -> Bool {
         let receivedPasteboard = draggingInfo.draggingPasteboard()
         if let objects = receivedPasteboard.readObjectsForClasses(DragAndDropConstants.acceptTypes, options: [:]) {
