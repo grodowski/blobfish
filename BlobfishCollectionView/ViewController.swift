@@ -18,9 +18,13 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.registerForDraggedTypes(["public.data"])
         Alamofire.request(.GET, "http://localhost:8000/memes").responseJSON { response in
             guard response.result.isSuccess else {
-                print("request failed")
+                let alert = NSAlert.init()
+                alert.messageText = "Mothership Failure"
+                alert.informativeText = response.result.error!.localizedDescription
+                alert.runModal()
                 return
             }
             let json = JSON(data: response.data!)
@@ -40,5 +44,47 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
         let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as!ClickableMemeItemView
         itemView.representedObject = images[indexPath.item] as! ImageObject
         return itemView
+    }
+}
+
+struct DragAndDropConstants {
+    static let acceptTypes: [AnyClass] = [NSImage.self, NSURL.self]
+}
+
+extension ViewController: NSCollectionViewDelegate {
+    func collectionView(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath?>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionViewDropOperation>) -> NSDragOperation {
+        return NSDragOperation.Copy
+    }
+    func collectionView(collectionView: NSCollectionView, acceptDrop draggingInfo: NSDraggingInfo, indexPath: NSIndexPath, dropOperation: NSCollectionViewDropOperation) -> Bool {
+        let receivedPasteboard = draggingInfo.draggingPasteboard()
+        if let objects = receivedPasteboard.readObjectsForClasses(DragAndDropConstants.acceptTypes, options: [:]) {
+            for item: AnyObject in objects {
+                addImageFromPasteboard(item)
+            }
+        }
+        return true
+    }
+    
+    // TODO: refactor to a service object - image upload is still missing on our backend
+    func addImageFromPasteboard(pasteboardObject: AnyObject) {
+        var newImage: NSImage?
+        switch pasteboardObject {
+        case let url as NSURL:
+            print("url", url) // a file has been dropped
+            if let imageCandidate = NSImage.init(contentsOfURL: url) { // yes - it's an image
+                newImage = imageCandidate
+            }
+        case let imageCandidate as NSImage:
+            print("image", imageCandidate)
+            newImage = imageCandidate
+        default:
+            break
+        }
+        guard newImage != nil else {
+            print("unknown type of pasteboard item: ", pasteboardObject)
+            return
+        }
+        self.images.addObject(ImageObject(url: "http://onet.pl", image: newImage!)) // TODO: missing upload :(
+        self.collectionView.reloadData()
     }
 }

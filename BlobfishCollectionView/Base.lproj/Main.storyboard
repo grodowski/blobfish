@@ -688,6 +688,7 @@
                                             <color key="primaryBackgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="jG6-mT-pjh"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="51x-1f-1ki"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
