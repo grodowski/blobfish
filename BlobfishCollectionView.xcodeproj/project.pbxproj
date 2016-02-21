@@ -330,6 +330,7 @@
 				CustomAppBundleId = "com.blobfishinc.${PRODUCT_NAME:rfc1034identifier}.${CONFIGURATION}";
 				INFOPLIST_FILE = BlobfishCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blobfishinc.BlobfishCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

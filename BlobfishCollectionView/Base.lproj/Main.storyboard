@@ -686,7 +686,7 @@
                                             <collectionViewFlowLayout key="collectionViewLayout" id="vP9-5o-azQ">
                                                 <size key="itemSize" width="225" height="225"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="primaryBackgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="jG6-mT-pjh"/>
                                                 <outlet property="delegate" destination="XfG-lQ-9wD" id="51x-1f-1ki"/>
