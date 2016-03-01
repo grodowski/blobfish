@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 func delay(delay: Double, closure:()->()) {
     dispatch_after(
@@ -15,4 +16,11 @@ func delay(delay: Double, closure:()->()) {
             Int64(delay * Double(NSEC_PER_SEC))
         ),
         dispatch_get_main_queue(), closure)
+}
+
+func showFailureModal(title: String, description: String) {
+    let alert = NSAlert.init()
+    alert.messageText = title
+    alert.informativeText = description
+    alert.runModal()
 }

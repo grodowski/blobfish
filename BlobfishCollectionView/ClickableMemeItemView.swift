@@ -21,7 +21,7 @@ class ClickableMemeItemView: NSCollectionViewItem {
         let res = sendUrlToPasteBoard((myImageObject.url))
         
         label.hidden = false
-        delay(0.7) {
+        delay(1.123) {
             self.label.hidden = true
         }
         print(myImageObject.url) // TODO: needs moar work, delegate this somewhere else!

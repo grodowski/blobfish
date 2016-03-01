@@ -18,7 +18,7 @@
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGl-P7-8g1">
                     <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="43A12CFB-8025-49E4-8346-940BC8B6413F" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="C2T-zm-beD">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="03FDACC7-A92B-4EE4-9B0D-25D6C3D0E7CF" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="C2T-zm-beD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -46,7 +46,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="43A12CFB-8025-49E4-8346-940BC8B6413F" width="1" height="1">
+        <image name="03FDACC7-A92B-4EE4-9B0D-25D6C3D0E7CF" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

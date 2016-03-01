@@ -25,21 +25,7 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes(["public.data"])
         collectionView.wantsLayer = true
-        Alamofire.request(.GET, mothershipUrl).responseJSON { response in
-            guard response.result.isSuccess else {
-                let alert = NSAlert.init()
-                alert.messageText = "Mothership Failure"
-                alert.informativeText = response.result.error!.localizedDescription
-                alert.runModal()
-                return
-            }
-            let json = JSON(data: response.data!)
-            for (_, image):(String, JSON) in json {
-                let newImage = ImageObject(url: image["url"].string!)
-                self.images.addObject(newImage)
-            }
-            self.collectionView.reloadData()
-        }
+        fetchData()
     }
     
     func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +36,23 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
         let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as!ClickableMemeItemView
         itemView.representedObject = images[indexPath.item] as! ImageObject
         return itemView
+    }
+    
+    func fetchData() {
+        images.removeAllObjects()
+        Alamofire.request(.GET, mothershipUrl).responseJSON { response in
+            guard response.result.isSuccess else {
+                showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
+                return
+            }
+            let json = JSON(data: response.data!)
+            for (_, image):(String, JSON) in json {
+                let newImage = ImageObject(url: image["url"].string!)
+                    self.images.addObject(newImage)
+            }
+            self.collectionView.reloadData()
+            print("fetchData() finished")
+        }
     }
 }
 
