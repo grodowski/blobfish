@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // Respond to Menu Icon click and show the main window if not visible
     func iconClicked(sender: AnyObject?) {
+        NSApp.activateIgnoringOtherApps(true) // bring to front!
         for window in NSApplication.sharedApplication().windows {
             window.makeKeyAndOrderFront(self)
         }
