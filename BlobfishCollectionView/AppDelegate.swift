@@ -11,8 +11,9 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet weak var collectionViewController: ViewController!
+    var statusItem: NSStatusItem?
     
+    // Handle the Refresh menu button
     @IBAction func refreshClicked(sender: AnyObject) {
         let collectionViewController = NSApplication.sharedApplication().mainWindow?.contentViewController as? ViewController
         guard collectionViewController != nil else {
@@ -20,6 +21,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         collectionViewController!.fetchData()
+    }
+    
+    override func awakeFromNib() {
+        statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+        if let icon = statusItem {
+            icon.title = "HB"
+            icon.highlightMode = true
+//            TODO(janek): missing menu icon
+//            icon.image =
+            icon.button?.target = self
+            icon.button?.action = "iconClicked:"
+
+        }
+    }
+    
+    // Respond to Menu Icon click and show the main window if not visible
+    func iconClicked(sender: AnyObject?) {
+        for window in NSApplication.sharedApplication().windows {
+            window.makeKeyAndOrderFront(self)
+        }
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
