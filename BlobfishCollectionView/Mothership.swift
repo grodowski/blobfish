@@ -13,10 +13,11 @@ import SwiftyJSON
 class Mothership {
     
     #if DEBUG
-    static let url: String = "http://localhost:8000/memes"
+    static let host: String = "http://localhost:8000"
     #else
-    static let url: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io/memes"
+    static let host: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io"
     #endif
+    static let indexUrl: String = "\(host)/memes"
 
     static let sharedInstance = Mothership()
     var lolcontent: NSMutableArray = NSMutableArray()
@@ -28,14 +29,14 @@ class Mothership {
     }
     
     func fetch(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
-        Alamofire.request(.GET, Mothership.url).responseJSON { response in
+        Alamofire.request(.GET, Mothership.indexUrl).responseJSON { response in
             guard response.result.isSuccess else {
                 failure(response)
                 return
             }
             let json = JSON(data: response.data!)
             for (_, image):(String, JSON) in json {
-                let newImage = ImageObject(url: image["url"].string!)
+                let newImage = ImageObject(url: "\(Mothership.host)/\(image["url"].string!)")
                 self.lolcontent.addObject(newImage)
             }
             success(response)

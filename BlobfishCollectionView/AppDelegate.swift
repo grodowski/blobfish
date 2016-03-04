@@ -32,7 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            icon.image =
             icon.button?.target = self
             icon.button?.action = "iconClicked:"
-
         }
     }
     

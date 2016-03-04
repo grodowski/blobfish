@@ -17,9 +17,6 @@ class CoverButtonCell: NSButtonCell {
         let viewWidth: CGFloat = frame.width
         let viewHeight: CGFloat = frame.height
         
-        print("IW:", imageWidth, "IH:", imageHeight, "VW:", viewWidth, "VH:", viewHeight)
-    
-        
         let imageAspectRatio: CGFloat = imageHeight / imageWidth
         let viewAspectRatio: CGFloat = viewHeight / viewWidth
         
@@ -33,7 +30,7 @@ class CoverButtonCell: NSButtonCell {
             // Image is more vertical than the view. Image top and bottom borders need to be cropped.
             newImageSize.height = imageWidth * viewAspectRatio;
         }
-        
+    
         NSGraphicsContext.currentContext()?.imageInterpolation = NSImageInterpolation.High
         
         let sourceFrame: NSRect = NSMakeRect(imageWidth / 2.0 - newImageSize.width / 2.0,
