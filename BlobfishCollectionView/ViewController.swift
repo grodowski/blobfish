@@ -8,18 +8,12 @@
 
 import Cocoa
 import Alamofire
-import SwiftyJSON
 
 class ViewController: NSViewController, NSCollectionViewDataSource {
 
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    #if DEBUG
-    let mothershipUrl: String = "http://localhost:8000/memes"
-    #else
-    let mothershipUrl: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io/memes"
-    #endif
-    var images: NSMutableArray = NSMutableArray()
+    var mothership: Mothership = Mothership.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,30 +23,24 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     }
     
     func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return mothership.countItems()
     }
     
     func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
         let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as!ClickableMemeItemView
-        itemView.representedObject = images[indexPath.item] as! ImageObject
+        itemView.representedObject = mothership.lolcontent[indexPath.item] as! ImageObject
         return itemView
     }
     
     func fetchData() {
-        images.removeAllObjects()
-        Alamofire.request(.GET, mothershipUrl).responseJSON { response in
-            guard response.result.isSuccess else {
-                showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
-                return
-            }
-            let json = JSON(data: response.data!)
-            for (_, image):(String, JSON) in json {
-                let newImage = ImageObject(url: image["url"].string!)
-                    self.images.addObject(newImage)
-            }
+        mothership.reset({
+            (response: Alamofire.Response<AnyObject, NSError>) -> Void in
             self.collectionView.reloadData()
-            print("fetchData() finished")
-        }
+            print("fetchData() success")
+        }, failure: {
+            (response: Alamofire.Response<AnyObject, NSError>) -> Void in
+            showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
+        })
     }
 }
 
@@ -94,7 +82,7 @@ extension ViewController: NSCollectionViewDelegate {
             print("unknown type of pasteboard item: ", pasteboardObject)
             return
         }
-        self.images.addObject(ImageObject(url: "http://onet.pl", image: newImage!)) // TODO: missing upload :(
-        self.collectionView.reloadData()
+        mothership.add(ImageObject(url: "http://onet.pl", image: newImage!))
+        collectionView.reloadData()
     }
 }
