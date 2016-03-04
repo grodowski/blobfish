@@ -17,7 +17,6 @@ class ImageObject: NSObject {
         self.url = url
         let data = NSData(contentsOfURL: NSURL.init(string: url)!)
         self.image = NSImage(data: data!)!
-        print(self.image.valid)
     }
     
     init(url: String, image: NSImage) {

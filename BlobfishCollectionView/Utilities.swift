@@ -24,3 +24,8 @@ func showFailureModal(title: String, description: String) {
     alert.informativeText = description
     alert.runModal()
 }
+
+func pngFromBitmap(image: NSImage) -> NSData {
+    let imageRep = NSBitmapImageRep.init(CGImage: image.CGImageForProposedRect(nil, context: nil, hints: nil)!)
+    return imageRep.representationUsingType(.NSPNGFileType, properties: [NSImageInterlaced: false])!
+}

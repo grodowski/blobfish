@@ -18,14 +18,33 @@ class Mothership {
     static let host: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io"
     #endif
     static let indexUrl: String = "\(host)/memes"
+    static let createUploadUrl: String = "\(host)/uploads"
 
     static let sharedInstance = Mothership()
     var lolcontent: NSMutableArray = NSMutableArray()
     
-    // TODO: missing validation
-    // TODO: missing upload
-    func add(newContent: ImageObject) {
-        lolcontent.addObject(newContent)
+    func add(image: NSImage, success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
+        Alamofire.upload(.POST, Mothership.createUploadUrl, data: pngFromBitmap(image))
+        .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
+//            print(totalBytesWritten)
+            // TODO(janek): I'm leaving it here for documentation purposes :)
+            // This closure is NOT called on the main queue for performance
+            // reasons. To update your ui, dispatch to the main queue.
+//            dispatch_async(dispatch_get_main_queue()) {
+//                print("Total bytes written on main queue: \(totalBytesWritten)")
+//            }
+        }
+        .responseJSON { response in
+            guard response.result.isSuccess else {
+                print("mothership failed to add image 🔥")
+                print(response.debugDescription)
+                failure(response)
+                return
+            }
+            let imageData = JSON(data: response.data!)
+            self.lolcontent.addObject(ImageObject(url: imageData["url"].string!, image: image))
+            success(response)
+        }
     }
     
     func fetch(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
@@ -43,7 +62,6 @@ class Mothership {
         }
     }
     
-    // TODO: is there a shorter way? delegates?
     func reset(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
         lolcontent.removeAllObjects()
         fetch(success, failure: failure)

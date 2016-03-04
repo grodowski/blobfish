@@ -74,12 +74,10 @@ extension ViewController: NSCollectionViewDelegate {
         var newImage: NSImage?
         switch pasteboardObject {
         case let url as NSURL:
-            print("url", url) // a file has been dropped
             if let imageCandidate = NSImage.init(contentsOfURL: url) { // yes - it's an image
                 newImage = imageCandidate
             }
         case let imageCandidate as NSImage:
-            print("image", imageCandidate)
             newImage = imageCandidate
         default:
             break
@@ -88,7 +86,13 @@ extension ViewController: NSCollectionViewDelegate {
             print("unknown type of pasteboard item: ", pasteboardObject)
             return
         }
-        mothership.add(ImageObject(url: "http://onet.pl", image: newImage!))
-        collectionView.reloadData()
+        mothership.add(newImage!, success: {
+            _response in
+            self.collectionView.reloadData()
+            print("upload complete 🏆🙉")
+        }, failure: {
+            _ in
+            print("🔥")
+        })
     }
 }
