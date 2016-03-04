@@ -11,7 +11,7 @@ import Cocoa
 class ClickableMemeItemView: NSCollectionViewItem {
 
     @IBOutlet weak var label: NSTextField!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }

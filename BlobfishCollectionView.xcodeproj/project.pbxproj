@@ -13,6 +13,7 @@
 		3D4EE1441C70EEF60025C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4EE1421C70EEF60025C3F8 /* Main.storyboard */; };
 		3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */; };
 		3D7579751C89064B009174DD /* Mothership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7579741C89064B009174DD /* Mothership.swift */; };
+		3D9AFD111C898BCB007A4208 /* CoverButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AFD101C898BCB007A4208 /* CoverButtonCell.swift */; };
 		3DEA96B11C7A4F3900A2FAC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */; };
 		3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */; };
 		3DFE33881C78F73E00252035 /* ClickableMemeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */; };
@@ -28,6 +29,7 @@
 		3D4EE1451C70EEF60025C3F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		3D7579741C89064B009174DD /* Mothership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mothership.swift; sourceTree = "<group>"; };
+		3D9AFD101C898BCB007A4208 /* CoverButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverButtonCell.swift; sourceTree = "<group>"; };
 		3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickableMemeItemView.swift; sourceTree = "<group>"; };
 		3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClickableMemeItemView.xib; sourceTree = "<group>"; };
@@ -69,18 +71,35 @@
 		3D4EE13B1C70EEF60025C3F8 /* BlobfishCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				3D9AFD0F1C898AC1007A4208 /* ClickableMemeItemView */,
+				3D9AFD0E1C898AA9007A4208 /* Model */,
 				3D4EE13C1C70EEF60025C3F8 /* AppDelegate.swift */,
 				3D4EE13E1C70EEF60025C3F8 /* ViewController.swift */,
-				3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */,
 				3D4EE1401C70EEF60025C3F8 /* Assets.xcassets */,
 				3D4EE1421C70EEF60025C3F8 /* Main.storyboard */,
-				3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */,
-				3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */,
 				3D4EE1451C70EEF60025C3F8 /* Info.plist */,
 				3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */,
-				3D7579741C89064B009174DD /* Mothership.swift */,
 			);
 			path = BlobfishCollectionView;
+			sourceTree = "<group>";
+		};
+		3D9AFD0E1C898AA9007A4208 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D7579741C89064B009174DD /* Mothership.swift */,
+				3D4EE14B1C70F0FB0025C3F8 /* ImageObject.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3D9AFD0F1C898AC1007A4208 /* ClickableMemeItemView */ = {
+			isa = PBXGroup;
+			children = (
+				3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */,
+				3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */,
+				3D9AFD101C898BCB007A4208 /* CoverButtonCell.swift */,
+			);
+			name = ClickableMemeItemView;
 			sourceTree = "<group>";
 		};
 		5A9822D495CD65911A928E4A /* Frameworks */ = {
@@ -227,6 +246,7 @@
 				3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */,
 				3D4EE13F1C70EEF60025C3F8 /* ViewController.swift in Sources */,
 				3DEA96B11C7A4F3900A2FAC4 /* Utilities.swift in Sources */,
+				3D9AFD111C898BCB007A4208 /* CoverButtonCell.swift in Sources */,
 				3D4EE13D1C70EEF60025C3F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

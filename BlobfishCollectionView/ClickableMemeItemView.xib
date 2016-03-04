@@ -18,7 +18,7 @@
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGl-P7-8g1">
                     <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="EFFE6842-909A-4BCB-9494-6959602CB6E7" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="C2T-zm-beD">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="52CFFCC9-7258-4426-B718-72B735A89365" imagePosition="only" alignment="center" inset="2" id="C2T-zm-beD" customClass="CoverButtonCell" customModule="BlobfishCollectionView" customModuleProvider="target">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -46,7 +46,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="EFFE6842-909A-4BCB-9494-6959602CB6E7" width="1" height="1">
+        <image name="52CFFCC9-7258-4426-B718-72B735A89365" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -15,6 +15,12 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     
     var mothership: Mothership = Mothership.sharedInstance
     
+    override func awakeFromNib() {
+        // Allow CollectionView items to resize dynamically
+        collectionView.minItemSize = NSMakeSize(225, 225);
+        collectionView.maxItemSize = NSMakeSize(0, 0);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes(["public.data"])
