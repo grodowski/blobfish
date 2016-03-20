@@ -13,9 +13,9 @@ import SwiftyJSON
 class Mothership {
     
     #if DEBUG
-    static let host: String = "http://localhost:8000"
+    static let host: String = "http://localhost:9777"
     #else
-    static let host: String = "http://blobfish-web.blobfish.0fc9e4e8.svc.dockerapp.io"
+    static let host: String = "http://www.mymagicserver.com:9777"
     #endif
     static let indexUrl: String = "\(host)/memes"
     static let createUploadUrl: String = "\(host)/uploads"
