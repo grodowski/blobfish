@@ -17,6 +17,7 @@
 		3DEA96B11C7A4F3900A2FAC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */; };
 		3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE33851C78F73E00252035 /* ClickableMemeItemView.swift */; };
 		3DFE33881C78F73E00252035 /* ClickableMemeItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */; };
+		B20E3A1D1C9FF9D30040511F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E3A1C1C9FF9D30040511F /* Router.swift */; };
 		E4C671A35C34CFB91000627D /* Pods_Happy_Blobfish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BD81518CB2719C01226D1E /* Pods_Happy_Blobfish.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		3DFE33861C78F73E00252035 /* ClickableMemeItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClickableMemeItemView.xib; sourceTree = "<group>"; };
 		54BD81518CB2719C01226D1E /* Pods_Happy_Blobfish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy_Blobfish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B86804F1480A44FD9CD39A /* Pods-Happy Blobfish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy Blobfish.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Happy Blobfish/Pods-Happy Blobfish.debug.xcconfig"; sourceTree = "<group>"; };
+		B20E3A1C1C9FF9D30040511F /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				3D4EE1421C70EEF60025C3F8 /* Main.storyboard */,
 				3D4EE1451C70EEF60025C3F8 /* Info.plist */,
 				3DEA96B01C7A4F3900A2FAC4 /* Utilities.swift */,
+				B20E3A1C1C9FF9D30040511F /* Router.swift */,
 			);
 			name = "Happy Blobfish";
 			path = BlobfishCollectionView;
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20E3A1D1C9FF9D30040511F /* Router.swift in Sources */,
 				3D7579751C89064B009174DD /* Mothership.swift in Sources */,
 				3D4EE14C1C70F0FB0025C3F8 /* ImageObject.swift in Sources */,
 				3DFE33871C78F73E00252035 /* ClickableMemeItemView.swift in Sources */,

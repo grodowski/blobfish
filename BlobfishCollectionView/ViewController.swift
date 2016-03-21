@@ -33,8 +33,8 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     }
     
     func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
-        let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as!ClickableMemeItemView
-        itemView.representedObject = mothership.lolcontent[indexPath.item] as! ImageObject
+        let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as! ClickableMemeItemView
+        itemView.representedObject = mothership.lolcontent[indexPath.item]
         return itemView
     }
     
