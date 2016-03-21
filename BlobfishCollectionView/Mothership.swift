@@ -36,7 +36,7 @@ class Mothership {
                 return
             }
             let imageData = JSON(data: response.data!)
-            self.lolcontent.append(ImageObject(url: imageData["url"].string!, image: image))
+            self.lolcontent.append(ImageObject(url: imageData["url"].string!))
             success(response)
         }
     }
