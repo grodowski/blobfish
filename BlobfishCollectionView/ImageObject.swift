@@ -24,7 +24,7 @@ class ImageObject: NSObject {
     }
     
     //MARK: - lazy loading blobfish
-    func downloadImage(success: (ImageResponse) -> (), failure: ImageResponseClosure?) {
+    func downloadImage(success: ImageResponseClosure, failure: ImageResponseClosure?) {
         Alamofire.request(.GET, url).responseImage { imageResponse in
             guard imageResponse.result.isSuccess else {
                 print(imageResponse.debugDescription)
