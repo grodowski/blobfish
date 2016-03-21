@@ -8,17 +8,19 @@
 
 import Cocoa
 
+enum ActionValueCopy: String {
+    case Markdown = "markdown 📋"
+    case Done = "done 🎉🙉"
+}
+
 class ClickableMemeItemView: NSCollectionViewItem {
 
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var imageButton: NSButton!
     
-    static let ValueCopy: String = "markdown 📋"
-    static let ValueCopyOk: String = "done 🎉🙉"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.stringValue = ClickableMemeItemView.ValueCopy
+        label.stringValue = ActionValueCopy.Markdown.rawValue
         let trackingArea = NSTrackingArea(
             rect: imageButton.bounds,
             options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways],
@@ -33,10 +35,10 @@ class ClickableMemeItemView: NSCollectionViewItem {
         
 
         label.hidden = false
-        label.stringValue = ClickableMemeItemView.ValueCopyOk
+        label.stringValue = ActionValueCopy.Done.rawValue
         1.123.delay {
             self.label.hidden = true
-            self.label.stringValue = ClickableMemeItemView.ValueCopy
+            self.label.stringValue = ActionValueCopy.Markdown.rawValue
         }
         print(myImageObject.url) // TODO: needs moar work, delegate this somewhere else!
         print(res)

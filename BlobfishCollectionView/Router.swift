@@ -9,11 +9,11 @@
 import Alamofire
 
 enum HappyBlobfishApi: URLRequestConvertible {
-    #if DEBUG
-    static let host: String = "http://localhost:9777"
-    #else
+//    #if DEBUG
+//    static let host: String = "http://localhost:9777"
+//    #else
     static let host: String = "http://www.mymagicserver.com:9777"
-    #endif
+//    #endif
     
     case Index
     case Upload
