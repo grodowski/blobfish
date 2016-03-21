@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jan/dev/swift_play/blobfish-desktop/Happy Blobfish.xcodeproj">
+      location = "group:Happy Blobfish.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
