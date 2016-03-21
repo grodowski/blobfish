@@ -10,12 +10,14 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+typealias Response = Alamofire.Response<AnyObject, NSError>
+
 class Mothership {
     static let sharedInstance = Mothership()
     private init() {}
     var lolcontent = [ImageObject]()
     
-    func add(image: NSImage, success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
+    func add(image: NSImage, success: (Response) -> (), failure: (Response) -> ()) {
         Alamofire.upload(HappyBlobfishApi.Upload, data: image.pngFromBitmap())
         .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
 //            print(totalBytesWritten)
@@ -39,7 +41,7 @@ class Mothership {
         }
     }
     
-    func fetch(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
+    func fetch(success: (Response) -> (), failure: (Response) -> ()) {
         Alamofire.request(HappyBlobfishApi.Index).responseJSON { response in
             guard response.result.isSuccess else {
                 failure(response)
@@ -53,7 +55,7 @@ class Mothership {
         }
     }
     
-    func reset(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
+    func reset(success: (Response) -> (), failure: (Response) -> ()) {
         lolcontent.removeAll()
         fetch(success, failure: failure)
     }

@@ -39,12 +39,10 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     }
     
     func fetchData() {
-        mothership.reset({
-            (response: Alamofire.Response<AnyObject, NSError>) -> Void in
+        mothership.reset({ _ in
             self.collectionView.reloadData()
             print("fetchData() success")
-        }, failure: {
-            (response: Alamofire.Response<AnyObject, NSError>) -> Void in
+        }, failure: { response in
             self.showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
         })
     }
