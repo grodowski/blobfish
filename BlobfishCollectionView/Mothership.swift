@@ -16,7 +16,7 @@ class Mothership {
     var lolcontent = [ImageObject]()
     
     func add(image: NSImage, success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
-        Alamofire.upload(HappyBlobfishApi.Upload, data: pngFromBitmap(image))
+        Alamofire.upload(HappyBlobfishApi.Upload, data: image.pngFromBitmap())
         .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
 //            print(totalBytesWritten)
             // TODO(janek): I'm leaving it here for documentation purposes :)
