@@ -34,7 +34,7 @@ class ClickableMemeItemView: NSCollectionViewItem {
 
         label.hidden = false
         label.stringValue = ClickableMemeItemView.ValueCopyOk
-        delay(1.123) {
+        1.123.delay {
             self.label.hidden = true
             self.label.stringValue = ClickableMemeItemView.ValueCopy
         }

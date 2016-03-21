@@ -45,7 +45,7 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
             print("fetchData() success")
         }, failure: {
             (response: Alamofire.Response<AnyObject, NSError>) -> Void in
-            showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
+            self.showFailureModal("Mothership Failure", description: response.result.error!.localizedDescription)
         })
     }
 }
