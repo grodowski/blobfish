@@ -21,7 +21,8 @@ class Mothership {
     static let createUploadUrl: String = "\(host)/uploads"
 
     static let sharedInstance = Mothership()
-    var lolcontent: NSMutableArray = NSMutableArray()
+    private init() {}
+    var lolcontent = [ImageObject]()
     
     func add(image: NSImage, success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
         Alamofire.upload(.POST, Mothership.createUploadUrl, data: pngFromBitmap(image))
@@ -42,7 +43,7 @@ class Mothership {
                 return
             }
             let imageData = JSON(data: response.data!)
-            self.lolcontent.addObject(ImageObject(url: imageData["url"].string!, image: image))
+            self.lolcontent.append(ImageObject(url: imageData["url"].string!, image: image))
             success(response)
         }
     }
@@ -54,16 +55,15 @@ class Mothership {
                 return
             }
             let json = JSON(data: response.data!)
-            for (_, image):(String, JSON) in json {
-                let newImage = ImageObject(url: "\(Mothership.host)/\(image["url"].string!)")
-                self.lolcontent.addObject(newImage)
+            for (_, image) in json {
+                self.lolcontent.append(ImageObject(url: "\(Mothership.host)/\(image["url"].string!)"))
             }
             success(response)
         }
     }
     
     func reset(success: (Alamofire.Response<AnyObject, NSError>) -> (), failure: (Alamofire.Response<AnyObject, NSError>) -> ()) {
-        lolcontent.removeAllObjects()
+        lolcontent.removeAll()
         fetch(success, failure: failure)
     }
     

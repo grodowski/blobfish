@@ -1,9 +1,9 @@
-workspace 'BlobfishCollectionView'
+workspace 'Happy Blobfish'
 
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'BlobfishCollectionView' do
+target 'Happy Blobfish' do
     pod 'Alamofire', '~> 3.0'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end

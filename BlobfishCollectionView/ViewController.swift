@@ -13,7 +13,7 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
 
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    var mothership: Mothership = Mothership.sharedInstance
+    var mothership = Mothership.sharedInstance
     
     override func awakeFromNib() {
         // Allow CollectionView items to resize dynamically
