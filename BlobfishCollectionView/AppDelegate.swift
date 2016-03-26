@@ -25,14 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     override func awakeFromNib() {
         statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-        if let icon = statusItem {
-            icon.title = "HB"
-            icon.highlightMode = true
-//            TODO(janek): missing menu icon
-//            icon.image =
-            icon.button?.target = self
-            icon.button?.action = "iconClicked:"
-        }
+        guard let icon = statusItem else { return }
+        guard let statusIcon = NSImage(named: "StatusIcon") else { return }
+        icon.image = statusIcon
+        icon.highlightMode = true
+        icon.button?.target = self
+        icon.button?.action = #selector(AppDelegate.iconClicked(_:))
     }
     
     // Respond to Menu Icon click and show the main window if not visible
