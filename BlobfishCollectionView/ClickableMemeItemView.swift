@@ -18,12 +18,20 @@ class ClickableMemeItemView: NSCollectionViewItem {
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var imageButton: NSButton!
     
+    override var representedObject: AnyObject? {
+        didSet {
+            if let representedObject = representedObject as? ImageObject {
+                imageButton.image = representedObject.image
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         label.stringValue = ActionValueCopy.Markdown.rawValue
         let trackingArea = NSTrackingArea(
             rect: imageButton.bounds,
-            options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways],
+            options: [.MouseEnteredAndExited, .ActiveAlways],
             owner: self,
             userInfo: nil)
         imageButton.addTrackingArea(trackingArea)
@@ -31,8 +39,7 @@ class ClickableMemeItemView: NSCollectionViewItem {
     
     @IBAction func action(sender: AnyObject) {
         let myImageObject = representedObject as! ImageObject
-        let res = sendUrlToPasteBoard((myImageObject.url))
-        
+        let res = sendUrlToPasteBoard(myImageObject.url)
 
         label.hidden = false
         label.stringValue = ActionValueCopy.Done.rawValue

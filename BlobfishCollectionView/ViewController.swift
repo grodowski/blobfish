@@ -34,7 +34,14 @@ class ViewController: NSViewController, NSCollectionViewDataSource {
     
     func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
         let itemView = collectionView.makeItemWithIdentifier("ClickableMemeItemView", forIndexPath: indexPath) as! ClickableMemeItemView
-        itemView.representedObject = mothership.lolcontent[indexPath.item]
+        let content = mothership.lolcontent[indexPath.item]
+        itemView.representedObject = content
+        
+        if !content.isImageDownloaded {
+            content.downloadImage({ imageResponse in
+                self.collectionView.reloadItemsAtIndexPaths([indexPath])
+            }, failure: nil)
+        }
         return itemView
     }
     
