@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ClickableMemeItemView" customModule="Happy_Blobfish" customModuleProvider="target">
@@ -18,7 +18,7 @@
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGl-P7-8g1">
                     <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="C1F023CC-E035-42AC-A0B6-4001AB653A47" imagePosition="only" alignment="center" inset="2" id="C2T-zm-beD" customClass="CoverButtonCell" customModule="Happy_Blobfish" customModuleProvider="target">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="45771C1C-43EF-4255-93FC-789F09D9414F" imagePosition="only" alignment="center" inset="2" id="C2T-zm-beD" customClass="CoverButtonCell" customModule="Happy_Blobfish" customModuleProvider="target">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -46,7 +46,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="C1F023CC-E035-42AC-A0B6-4001AB653A47" width="1" height="1">
+        <image name="45771C1C-43EF-4255-93FC-789F09D9414F" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
