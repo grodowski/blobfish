@@ -24,7 +24,6 @@
                     </buttonCell>
                     <connections>
                         <action selector="action:" target="gyU-Tz-Zhd" id="6Hn-sx-k46"/>
-                        <binding destination="gyU-Tz-Zhd" name="image" keyPath="representedObject.image" id="Oza-k9-d3h"/>
                     </connections>
                 </button>
                 <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="pIB-hD-fTX">
